@@ -36,3 +36,26 @@
 
 // npm init --yes => initialiser le projet 
 
+// crée un fichier package.json => donner des informations sur le projet
+// cette commande n'est à réaliser que au lancement du projet 
+
+// npm install lodash
+// npm i lodash
+
+
+// 1 créer un dossier node_modules
+// 2 va télécharger la librairie lodash sur le site internet https://www.npmjs.com/
+// 3 créer un fichier package-lock.json
+// 4 modifier package.json
+// ajouté une propriété => dependencies
+// attention ne pas faire la commande npm i lodash si vous n'vez pas au préalable
+// réalisé la commande npm init --yes
+
+// package-lock.json et package.json => laisser à npm la droit d'écrire / modifier dedans
+
+// chaque package que vous allez télécharger contient lui même un fichier package.json
+
+// npm uninstall lodash
+// npm un lodash
+
+

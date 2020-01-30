@@ -58,4 +58,9 @@
 // npm uninstall lodash
 // npm un lodash
 
+// npm i underscore
+
+// utiliser underscore dans un de mes projets
+// 04-librairie.js
+
 

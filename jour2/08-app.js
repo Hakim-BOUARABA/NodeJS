@@ -33,13 +33,14 @@ app.post("/" , function(req, res){
 });
 
 app.use(express.json()); // fonction middleware 
+// dans POSTMAN
 // Menu déroulant POST
 // url : http://localhost:3022/nouveau
 // body > raw + Json
 /* 
 {
     "id" : 5 ,
-    "name": "encore un nouel article"
+    "name": "encore un nouvel article"
 }
 */
 

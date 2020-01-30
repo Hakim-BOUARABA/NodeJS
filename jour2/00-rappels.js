@@ -59,7 +59,7 @@ ce fichier va contenir une fonction
     deux arguments largeur hauteur
 
     3 instructions 
-        vérifier que largeur est un chiffre
+        vérifier que largeur est un chiffre => typeof 
         vérifier que hauteur est un chiffre
         return la phrase suivante "le rectange a une largeur de largeur et une hauteur de hauteur et il a une aire de aire"
 
@@ -92,4 +92,6 @@ http://localhost:8888/erreur => il répond "404"
 http://localhost:8888/nouveaute.php  => il répond "liste des nouveaux produits"
 http://localhost:8888/blog  => il répond "liste des dernières articles"
 
+lancer le script dans le shell
+tester via votre navigateur que le serveur fonctionne !
 */

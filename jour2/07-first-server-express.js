@@ -31,7 +31,6 @@ app.get("/profils", function(req, res){
 // http://localhost:5000/articles/2
 // http://localhost:5000/articles/3
 app.get("/articles/:id", function(req, res){
-
     const id = req.params.id ;
     const articles = [
         {
@@ -44,7 +43,7 @@ app.get("/articles/:id", function(req, res){
         }
     ];
     res.send(articles[id -1]);
-})
+});
 
 app.listen(5000);
 
@@ -52,3 +51,39 @@ app.listen(5000);
 
 // http://localhost:5000
 // http://localhost:5000/profils
+
+
+// créer un nouveau fichier qui va créer un serveur en utilisant express
+
+// ce serveur va servir les requêtes suivantes :
+
+// http://localhost:3022/
+
+/* tableau [
+    {
+        id : 1,
+        name : "tuto"
+    },
+    {
+        id : 2,
+        name : "js"
+    },
+    {
+        id : 3,
+        name : "angular"
+    },
+] 
+
+// http://localhost:3022/tuto/1
+il va vous retourner 
+{
+    id : 1,
+    name : "tuto"
+}
+// http://localhost:3022/tuto/2
+{
+    id : 2,
+    name : "js"
+}
+
+*/

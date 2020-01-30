@@ -41,5 +41,40 @@ ce module très intéressant car => ce que l'on va faire avec Node
 
 Node permet de créer des back office = Serveur
 
+const http = require("http");
+
+const server = http.createServer()
+
+server.on("request", fonction(req , res){});
+
+server.listen(3222, "localhost")
+
+
+
+cas n°1 :
+
+créer un fichier 01-module.js
+ce fichier va contenir une fonction 
+    nom calculAire
+    deux arguments largeur hauteur
+
+    3 instructions 
+        vérifier que largeur est un chiffre
+        vérifier que hauteur est un chiffre
+        return la phrase suivante "le rectange a une largeur de largeur et une hauteur de hauteur et il a une aire de aire"
+
+
+    export de la fonction    
+créer 01-main.js
+
+    importer la fonction aire
+
+    utiliser aire sur les valeurs suivantes 
+
+    22 44
+    "bonjour" 22
+    55 "hello"
+
+
 
 */

@@ -5,13 +5,11 @@ const calculAire = function (largeur, hauteur){
     // vérifier mes variables avant d'effecter le return
 
     if(typeof largeur != "number"){
-        console.log("largeur incorrecte");
-        return ""; // stop exécution du code 
+        return "largeur incorrecte"; // stop exécution du code 
     }
 
     if(typeof hauteur != "number"){
-        console.log("hauteur incorrecte");
-        return ""; // stop exécution du code 
+        return "hauteur incorrecte"; // stop exécution du code 
     }   
 
     return `le rectange a une largeur de ${largeur} et une hauteur de ${hauteur} et il a une aire de ${largeur * hauteur }`;

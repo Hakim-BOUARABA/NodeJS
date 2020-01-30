@@ -54,7 +54,6 @@ app.listen(5000);
 
 
 // créer un nouveau fichier qui va créer un serveur en utilisant express
-
 // ce serveur va servir les requêtes suivantes :
 
 // http://localhost:3022/
@@ -80,7 +79,9 @@ il va vous retourner
     id : 1,
     name : "tuto"
 }
+
 // http://localhost:3022/tuto/2
+il va vous retourner 
 {
     id : 2,
     name : "js"

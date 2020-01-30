@@ -81,7 +81,7 @@ Exécuter le code dans le shell
 
 */
 /*
-
+cas n°2  :
 créer un fichier 02-serveur.js
 
 ce serveur va réaliser les actions suivantes 

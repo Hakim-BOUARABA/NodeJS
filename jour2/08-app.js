@@ -32,6 +32,26 @@ app.post("/" , function(req, res){
     res.send(baseDeDonnee);
 });
 
+app.use(express.json()); // fonction middleware 
+// Menu déroulant POST
+// url : http://localhost:3022/nouveau
+// body > raw + Json
+/* 
+{
+    "id" : 5 ,
+    "name": "encore un nouel article"
+}
+*/
+
+app.post("/nouveau", function(req, res){
+    const nouvelArticle = req.body; // => stocke ce que l'on va donner dans postman
+
+    baseDeDonnee.push(nouvelArticle);
+    res.send(baseDeDonnee);
+
+})
+
+
 
 app.listen(3022);
 // Arrêter l'ancien script Ctrl + C puis O Enter

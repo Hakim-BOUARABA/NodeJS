@@ -5,6 +5,7 @@ const calculAire = function (largeur, hauteur){
     // vérifier mes variables avant d'effecter le return
 
     if(typeof largeur != "number"){
+        // isNaN(largeur)
         return "largeur incorrecte"; // stop exécution du code 
     }
 

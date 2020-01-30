@@ -89,7 +89,7 @@ si il reçoit la requête
 http://localhost:8888 => il répond "Accueil"
 http://localhost:8888/erreur => il répond "404"
 http://localhost:8888/nouveaute.php  => il répond "liste des nouveaux produits"
-http://localhost:8888/blog  => il répond "liste des dernières articles"
+http://localhost:8888/blog  => il répond "liste des derniers articles"
 
 lancer le script dans le shell
 tester via votre navigateur que le serveur fonctionne !

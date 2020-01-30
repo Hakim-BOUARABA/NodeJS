@@ -24,3 +24,23 @@ console.log(verifNombre);
 
 // node 05-exo.js
 
+
+// pour installer la librairie mongoose => dans le shell
+// est ce que j'ai un fichier package.json npm init --yes
+// npm i mongoose
+// librairie elle même a besoin d'autres librairies pour fonctionner 
+// 21 librairies simulténamément en 1 commande 
+
+// npm install nodemon -g
+// npm i nodemon -g
+// npm i -g nodemon 
+// npm i --global nodemon
+
+
+// i => faire fonctionner mon projet
+// i + -g => pour aider le développeur
+
+
+// npm i -g nodemon
+
+// nouvel outil en ligne de commande

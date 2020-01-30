@@ -50,7 +50,6 @@ server.on("request", fonction(req , res){});
 server.listen(3222, "localhost")
 
 
-
 cas n°1 :
 
 créer un fichier 01-module.js

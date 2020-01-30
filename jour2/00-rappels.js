@@ -63,18 +63,33 @@ ce fichier va contenir une fonction
         vérifier que hauteur est un chiffre
         return la phrase suivante "le rectange a une largeur de largeur et une hauteur de hauteur et il a une aire de aire"
 
-
     export de la fonction    
+
+-------
+
 créer 01-main.js
 
     importer la fonction aire
 
-    utiliser aire sur les valeurs suivantes 
+    utiliser aire sur les valeurs suivantes :
 
-    22 44
-    "bonjour" 22
-    55 "hello"
+    largeur : 22 - hauteur : 44
+    largeur : "bonjour" - hauteur : 22
+    largeur : 55 - hauteur :  "hello"
 
+Exécuter le code dans le shell
 
+*/
+/*
+
+créer un fichier 02-serveur.js
+
+ce serveur va réaliser les actions suivantes 
+
+si il reçoit la requête
+http://localhost:8888 => il répond "Accueil"
+http://localhost:8888/erreur => il répond "404"
+http://localhost:8888/nouveaute.php  => il répond "liste des nouveaux produits"
+http://localhost:8888/blog  => il répond "liste des dernières articles"
 
 */

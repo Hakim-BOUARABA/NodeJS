@@ -4,7 +4,7 @@
 // utiliser le module express pour créer un serveur 
 // ce serveur aura les comportements suivants
 
-
+/*
 si on l'appelle avec la méthode GET et l'url http://localhost:4300
 
 retourner un tableau 
@@ -54,4 +54,4 @@ retourner un tableau
 	{id : 3 , nom : "mathématique"},
     {"id" : 4 , "nom" : "autre matière"},
     {"id" : 5 , "categorie" : ["info1, "info2]}
-];
+]; */

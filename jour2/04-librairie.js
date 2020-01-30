@@ -4,7 +4,7 @@
 
 const _ = require("underscore");
 
-// faire mélanger les données d'un tableau
+// mélanger les éléments d'un tableau
 
 const tableauDeBase = ["niveau 1", "niveau 2", "niveau 3"];
 
@@ -16,5 +16,4 @@ console.log(tableauMelange);
 // node 04-librairie.js
 // node 04-librairie.js
 
-
-//https://formation.webdevpro.net/nodejs
+//https://formation.webdevpro.net/nodejs faire le cas n°1 et 2 de la section 4 

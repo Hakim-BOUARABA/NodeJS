@@ -59,9 +59,9 @@ ce fichier va contenir une fonction
     deux arguments largeur hauteur
 
     3 instructions 
-        vérifier que largeur est un chiffre => typeof 
+        vérifier que largeur est un chiffre => typeof  (astuce)
         vérifier que hauteur est un chiffre
-        return la phrase suivante "le rectange a une largeur de largeur et une hauteur de hauteur et il a une aire de aire"
+        return la phrase suivante "le rectange a une largeur de largeur et une hauteur de hauteur et il a une aire de aire" => concaténation ` ${hauteur} ` (astuce)
 
     export de la fonction    
 
@@ -69,9 +69,9 @@ ce fichier va contenir une fonction
 
 créer 01-main.js
 
-    importer la fonction aire
+    importer la fonction calculAire
 
-    utiliser aire sur les valeurs suivantes :
+    utiliser calculAire sur les valeurs suivantes :
 
     largeur : 22 - hauteur : 44
     largeur : "bonjour" - hauteur : 22

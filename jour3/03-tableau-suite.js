@@ -24,3 +24,19 @@ console.log(indexDeux); // retourner si l'élément est bien présent dans le ta
 const index = resultat.indexOf("hello"); // si present retourne son index +1 et sinon -1
 console.log(index);
 
+// tableau qui contient des objets => collection
+
+const t = [
+    { id : 1 },
+    { id : 2 },
+    { id : 3 },
+    { id : 10 }
+];
+
+/* const el = t.find(function(el){
+    return el.id = 10
+});
+
+console.log(where); */
+
+

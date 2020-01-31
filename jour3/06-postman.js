@@ -96,7 +96,27 @@ app.get("/:id", function(req, res){
 
     res.send(article);
 
-})
+});
+// pour ajouter un nouvel élément dans ma bdd => OBLIGATOIRE AVANT LE POST
+
+// attention dans POSTMAN
+/*
+    {
+        "nom" : "nouveau produit" 
+    }
+
+*/
+// ajouter un nouvel élément à la fin du tableau bdd 
+app.use(express.json()); 
+
+app.post("/", function(req, res){
+    const body = req.body;
+
+    bdd.push(body);
+    res.send(bdd);
+});
+
+
 
 
 app.listen(2500); 

@@ -80,3 +80,26 @@ tableauSimple.splice(tableauSimple.length -1 , 1);
 // READ = tableauSimple[2]
 // UPDATE = tableauSimple[2] = "modification"
 // DELETE = tableauSimple.splice(2, 1);
+
+// cas pratique créer un nouveau fichier js 
+/* const resultat = [1,2,3,5];
+// ajouter un nouveau élément à la fin du tableau : la chaine "hello"
+// ajouter un nouveau élément à la fin du tableau 
+    {
+        _id : 12345 ,
+        title : "article",
+         contenu : "nouvel article"
+    }
+
+    modifier le 3ème élément du tableau remplacer par "troisième"
+    modifier le 1er élément du tableau remplacer par "first"
+    supprimer le dernier élément du tableau
+    ajouter un nouvel élément au tableau ""
+    {
+        _id : 12345 ,
+        title : "nouveau"
+    }
+afficher le tableau dans la console 
+*/
+
+

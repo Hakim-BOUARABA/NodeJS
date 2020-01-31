@@ -42,7 +42,61 @@ app.get("/", function(req , res){
 
 // test
 
+// récupérer un seul élément dans ma base de donnée 
+// http://localhost:2500/1
+// http://localhost:2500/2
+// http://localhost:2500/3
+app.get("/:id", function(req, res){
+    // 1 récupérer le numéro qui a été saisi dans l'url
 
+    const id = req.params.id ;
+
+    // réchercher si il existe bien un élément dans le tableau qui a l'_id id 
+    const article = bdd.find(function(item){
+        return item._id === parseInt(id);
+        // parseInt("1") => 1
+    })
+
+    const verif = 20 > 2 ;
+    const verif2 = 20 < 2 && 3 > 4 ;
+    //              false && false
+    //              false 
+    const verif3 = 20 > 2 && 3 > 4 ;
+    //              true && false
+    //              false
+
+    const verif4 = 20 > 2 || 3 > 4 ;
+    //              true || false
+    //              true 
+
+    const verif5 = !(20 > 2 || 3 > 4) ;
+    //              !(true || false)
+    //              !(true)
+    //              false
+
+    const verif6 = undefined ;
+    //              false 
+
+
+    const verif7 = !undefined ;
+    //              !false
+    //              true
+
+    const verif8 = { _id : 1, prix : 20} ;
+    //              true
+
+    const verif9 = !{ _id : 1, prix : 20} ;
+    //              !true
+    //              false
+
+    if(!article){
+        res.status(404).send("aucun produit disponible avec l'id "+ id);
+        return ;
+    }
+
+    res.send(article);
+
+})
 
 
 app.listen(2500); 

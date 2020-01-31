@@ -8,7 +8,6 @@
 si on l'appelle avec la méthode GET et l'url http://localhost:4300
 
 retourner un tableau 
-
 [
 	{id : 1 , nom : "informatique"},
 	{id : 2 , nom : "management"},
@@ -30,7 +29,6 @@ si l'appeler avec
 il va vous répondre 
 
 retourner un tableau 
-
 [
 	{id : 1 , nom : "informatique"},
 	{id : 2 , nom : "management"},
@@ -47,7 +45,6 @@ si l'appeler avec
 il va vous répondre 
 
 retourner un tableau 
-
 [
 	{id : 1 , nom : "informatique"},
 	{id : 2 , nom : "management"},

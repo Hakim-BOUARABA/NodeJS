@@ -134,6 +134,45 @@ app.delete("/:id", function(req, res){
     res.send(bdd);
 })
 
+/*
+update = mis à jour / modification 
+le client doit envoyer 2 informations
+Quel article je dois mettre à jour ???????
+http://localhost:2500/1
+ce que je veux modifier ???
+body 
+{
+    "nom" : "nom modifié",
+    "prix" :  33
+}
+
+*/
+
+app.put("/:id",function(req, res){
+
+    const id = req.params.id;
+    const body = req.body;
+
+    const article = bdd.find(function(item){
+        return item._id === parseInt(id);
+    });
+
+    if(!article){
+        res.status(404).send(`l'article n° ${id} n'existe`);
+        return ;
+    }
+
+    // si c'est ok je peux effectuer la mis à jour
+    const index = bdd.indexOf(article);
+
+    bdd[index].nom = body.nom;
+    bdd[index].prix = body.prix;
+
+    res.send(bdd);
+
+});
+
+
 
 app.listen(2500); 
 // shell nodemon 06-postman.js

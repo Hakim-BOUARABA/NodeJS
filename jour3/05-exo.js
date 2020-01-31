@@ -21,5 +21,6 @@ const bdd = [
 // modifier le prix du produit qui a l' _id 2
 // modifier le titre du produit qui a l'_id 1
 // supprimer le dernier produit de la collection 
+// afficher la collection
 
 

@@ -116,7 +116,31 @@ app.post("/", function(req, res){
     res.send(bdd);
 });
 
+// supprimer un élément dans bdd
+//http://localhost:2500/1
+app.delete("/:id", function(req, res){
 
+    const id = req.params.id;
+
+    // vérifier si l'élément existe bien dans la collection bdd
+
+    const article = bdd.find(function(item){
+        return item._id === parseInt(id)
+    });
+
+    if(!article){
+        res.status(404).send(`l'article numéro ${id} est déjà supprimé`);
+        return ;
+    }
+
+    // supprimer 
+
+    const index = bdd.indexOf(article);
+    bdd.splice(index , 1);
+
+    res.send(bdd);
+
+})
 
 
 app.listen(2500); 

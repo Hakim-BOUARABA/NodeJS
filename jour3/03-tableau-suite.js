@@ -88,6 +88,8 @@ b.push(
 // supprimer un élément d'un tableau complexe { _id : 2}
 
 */
+
+
 const b = [
     {_id: 1},
     {_id: 2},
@@ -103,4 +105,17 @@ const indexElement = b.indexOf(r);
 
 b.splice(indexElement , 1);
 
-console.log(b)
+console.log(b);
+
+// je veux modifier la valeur de élément qui a {_id : 1};
+
+// rechercher l'élément qui a l'_id 1 dans la collection b 
+const rr = b.find(function(item){
+    return item._id === 1;
+});
+// je récupére l'index de l'élément
+const indexFirst = b.indexOf(rr);
+// je réalise la modification
+b[indexFirst] = { _id : 1 , titre : "titre de l'article "};
+
+console.log(b);

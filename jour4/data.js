@@ -31,7 +31,6 @@
 
 // Modele.find()
 
-
 // read == pour 1 seul enregistrement
 
 // Modele.find({ _id : 1}) // SELECT * FROM categorie WHERE _id LIKE 1%

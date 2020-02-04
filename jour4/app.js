@@ -138,6 +138,38 @@ app.delete("/:id",function(req,res){
 });
 
 
+app.put("/:id",function(req,res){
+    // récupérer l'id dans l'url
+    const id = req.params.id; 
+    // récupérer le body => JSON
+    const body = req.body;
+    // vérifier qu'il existe bien un enregistrer avec l'id concerné
+    const categorie = categories.find(function(item){
+        return item.id === parseInt(id);
+    })
+    // si ko => erreur 404 et message
+    if(!categorie){
+        res.status(404).send("aucun enregistrement avec l'id "+ id);
+        return ;
+    }
+    // vérifier que c'est conforme à un schéma
+    const schema = Joi.object({
+        nom : Joi.string().min(3).max(255).required()
+    });
+    const verif = schema.validate(body);
+    // si ko => erreur 400 + message
+    if(verif.error){
+        res.status(400).send(verif.error.details[0].message);
+        return ;
+    }
+    // si tout ok => mis à jour et envoyer la liste des enregistrements 
+
+    const index = categories.indexOf(categorie);
+    categories[index].nom = body.nom;
+    res.send(categories);
+
+});
+
 
 app.listen(4004);
 

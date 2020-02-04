@@ -96,13 +96,29 @@ app.post("/",function(req, res){
     }
     */ 
 
-    res.send(verif);
-    
-
     // si ce n'est pas conforme => NON je ne peux pas traiter + dire pourquoi
+    if(verif.error){
+        res.status(400).send(verif.error.details[0].message);
+        return;
+    }
+    //res.send(verif);
+
+    // est ce que l'id de l'objet n'est pas déjà
+
+    const categorie = categories.find(function(item){
+        return item.id === parseInt(body.id);
+    });
+
+    if(categorie){
+        res.status(400).send("il existe déjà une catégorie avec l'id " + body.id);
+        return;
+    }
 
     // si c'est conforme alors je vais ajouter à la suite le JSON dans la variable categories  
-    
+    categories.push(body);
+    res.send(categories);
+
+
 });
 
 

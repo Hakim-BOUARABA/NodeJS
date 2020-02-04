@@ -103,7 +103,7 @@ app.post("/",function(req, res){
     }
     //res.send(verif);
 
-    // est ce que l'id de l'objet n'est pas déjà
+    // est ce que catégories a déjà un objet avec l'id mentionné
 
     const categorie = categories.find(function(item){
         return item.id === parseInt(body.id);
@@ -117,9 +117,26 @@ app.post("/",function(req, res){
     // si c'est conforme alors je vais ajouter à la suite le JSON dans la variable categories  
     categories.push(body);
     res.send(categories);
-
-
 });
+
+app.delete("/:id",function(req,res){
+    //récupérer l'id dans l'url
+    const id = req.params.id ;
+    // est qu'il y a bien un enregistrement dans la variable categories qui a l'id
+    const categorie = categories.find(function(item){
+        return item.id === parseInt(id);
+    })
+    // si non => stop et on va dire qu'il n'existe pas d'enregistrement avec l'id concerné
+    if(!categorie){
+        res.status(404).send("aucun enregistrement avec l'id "+id);
+        return ;
+    }
+    // si ok => suppression 
+    const index = categories.indexOf(categorie);
+    categories.splice(index,1);
+    res.send(categories);
+});
+
 
 
 app.listen(4004);

@@ -83,6 +83,59 @@ router.get("/:id", async function(req, res){
     }
     // si tout est ok, je retourne le profil concerné
     res.send(resultat);
+});
+
+// supprimer un enregistrement dans la base de données MongoDB online
+router.delete("/:id", async function(req, res){
+    // récupérer l'id
+    const id = req.params.id ;
+    // vérifier que l'id est conforme 
+    // verifID = true || false 
+    const verifID = mongoose.Types.ObjectId.isValid(id);
+    // si non conforme => erreur 400 + stop + message
+    if(!verifID){
+        res.status(400).send("l'id transmis n'est pas conforme");
+        return ;
+    }
+    // vérifier si il existe bien un engistrement avec id transmis dans l'url
+    const resultat = await Profil.deleteOne({ _id : id});
+    //res.send(resultat);
+
+    /**
+si c'est ok 
+{
+    "n": 1,
+    "opTime": {
+        "ts": "6789943596729499649",
+        "t": 20
+    },
+    "electionId": "7fffffff0000000000000014",
+    "ok": 1,
+    "$clusterTime": {
+        "clusterTime": "6789943596729499649",
+        "signature": {
+            "hash": "pLcoyksPdAV4rQoQFLuioCH5WNI=",
+            "keyId": "6725428983170596866"
+        }
+    },
+    "operationTime": "6789943596729499649",
+    "deletedCount": 1
+}
+
+     * 
+     */
+    // si il y en a pas => erreur 404 + message + stop
+
+    if(resultat.deletedCount === 0){
+        res.status(404).send("il n'existe pas d'enregistrement avec l'id" + id);
+        return ;
+    }
+
+    // si tout est ok => effectuer la suppression
+    // retourner un message la liste de tous les profils dans la base
+
+    const reponse = await Profil.find();
+    res.send(reponse);
 })
 
 

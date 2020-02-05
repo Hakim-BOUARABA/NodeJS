@@ -23,18 +23,20 @@ const schemaProfil = mongoose.Schema({
 
 const Profil = mongoose.model("profil", schemaProfil);
 
+const schema = Joi.object({
+    prenom : Joi.string().min(3).max(255).required(),
+    nom : Joi.string().min(3).max(255).required(),
+    status : Joi.boolean().required(),
+    age : Joi.number().min(0).max(120).required(),
+    email : Joi.string().email().required()
+});
+
 
 router.post("/", async function(req, res){
     // récupérer le body de la requête post
     const body = req.body;
     // vérifier quelle est conforme à ce que l'on attend
-    const schema = Joi.object({
-        prenom : Joi.string().min(3).max(255).required(),
-        nom : Joi.string().min(3).max(255).required(),
-        status : Joi.boolean().required(),
-        age : Joi.number().min(0).max(120).required(),
-        email : Joi.string().email().required()
-    });
+   
     const verif = schema.validate(body);
     // si ko => message et stop exécution
     if(verif.error){
@@ -142,23 +144,51 @@ si c'est ok
 router.put("/:id", async function(req,res){
 
     // récupérer l'id dans l'url
-
+    const id = req.params.id ;
     // vérifier que l'id est conforme
-
+    const verifID = mongoose.Types.ObjectId.isValid(id);
     // si c'est pas conforme : erreur 400 + message + stop
 
+    if(!verifID){
+        res.status(400).send("id non conforme !");
+        return ;
+    }
     // récupérer le body de la requête 
-
+    const body = req.body ;
     // vérifier quelle est conforme 
 
+    const verif = schema.validate(body); 
+    // attention la variable schema est globale == disponible pour toutes les fonctions 
     // si non conforme : erreur 400 + message + stop 
+
+    if(verif.error){
+        res.status(400).send(verif.error.details[0].message);
+        return;
+    }
 
     // est qu'il y a un enregistrement avec l'id transmis dans l'url
 
+    const resultat = await Profil.find({_id : id});
     // si il n'y a pas d'enregistrement : erreur 404 + message + stop
     
+    if(resultat.length === 0){
+        res.status(404).send("aucun enregistrement trouvé pour l'id "+ id);
+        return ;
+    }
+
     // si tout ok alors effectuer la mis à jour 
     // retourner la liste des profils 
+
+    resultat[0].prenom = body.prenom;
+    resultat[0].nom = body.nom;
+    resultat[0].status = body.status;
+    resultat[0].age = body.age;
+    resultat[0].email = body.email;
+
+    const reponse = await resultat.save();
+
+    res.send(reponse);
+
 });
 
 

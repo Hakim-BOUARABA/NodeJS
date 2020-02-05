@@ -34,6 +34,7 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
+const routerProfil = require("./router/profil");
 
 // spécial pour le fait que l'on va mettre en ligne notre projet
 const cors = require("cors");
@@ -44,6 +45,7 @@ const app = express();
 app.use(cors()); // autoriser des sites internet à lui faire des requêtes
 app.use(express.json()); // récupérer plus facile le body des requêtes POST et PUT
 
+app.use("/profil",routerProfil ); // utiliser le router Profil
 
 const urlBDD = "mongodb+srv://ifocop_admin:azerty1234@cluster0-yozxs.mongodb.net/test?retryWrites=true&w=majority"; // https://mlab.com/ => se connecter avec le compte que l'on a créé hier 
 const optionConnexion = {

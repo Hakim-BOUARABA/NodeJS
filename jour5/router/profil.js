@@ -4,32 +4,13 @@
 //que l'on peut faire à notre serveur sur la ressource profil
 
 const express = require("express");
-const Joi = require("@hapi/joi");
 const mongoose = require("mongoose");
 
 const router = express.Router();
 
 // schema des données => colonnes
 
-const schemaProfil = mongoose.Schema({
-    prenom : String,
-    nom : String ,
-    status : Boolean,
-    age : Number,
-    email : String
-});
-
-// lier le schema à la collection = Modèle
-
-const Profil = mongoose.model("profil", schemaProfil);
-
-const schema = Joi.object({
-    prenom : Joi.string().min(3).max(255).required(),
-    nom : Joi.string().min(3).max(255).required(),
-    status : Joi.boolean().required(),
-    age : Joi.number().min(0).max(120).required(),
-    email : Joi.string().email().required()
-});
+const { Profil , schema } = require("../model/profil");
 
 
 router.post("/", async function(req, res){
@@ -168,10 +149,10 @@ router.put("/:id", async function(req,res){
 
     // est qu'il y a un enregistrement avec l'id transmis dans l'url
 
-    const resultat = await Profil.find({_id : id});
+    const resultat = await Profil.findById(id);
     // si il n'y a pas d'enregistrement : erreur 404 + message + stop
     
-    if(resultat.length === 0){
+    if(!resultat){
         res.status(404).send("aucun enregistrement trouvé pour l'id "+ id);
         return ;
     }
@@ -179,11 +160,11 @@ router.put("/:id", async function(req,res){
     // si tout ok alors effectuer la mis à jour 
     // retourner la liste des profils 
 
-    resultat[0].prenom = body.prenom;
-    resultat[0].nom = body.nom;
-    resultat[0].status = body.status;
-    resultat[0].age = body.age;
-    resultat[0].email = body.email;
+    resultat.prenom = body.prenom;
+    resultat.nom = body.nom;
+    resultat.status = body.status;
+    resultat.age = body.age;
+    resultat.email = body.email;
 
     const reponse = await resultat.save();
 

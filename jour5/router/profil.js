@@ -138,6 +138,29 @@ si c'est ok
     res.send(reponse);
 })
 
+// mis à jour d'un enregistrement dans la bdd MongoDB
+router.put("/:id", async function(req,res){
+
+    // récupérer l'id dans l'url
+
+    // vérifier que l'id est conforme
+
+    // si c'est pas conforme : erreur 400 + message + stop
+
+    // récupérer le body de la requête 
+
+    // vérifier quelle est conforme 
+
+    // si non conforme : erreur 400 + message + stop 
+
+    // est qu'il y a un enregistrement avec l'id transmis dans l'url
+
+    // si il n'y a pas d'enregistrement : erreur 404 + message + stop
+    
+    // si tout ok alors effectuer la mis à jour 
+    // retourner la liste des profils 
+});
+
 
 
 module.exports = router;

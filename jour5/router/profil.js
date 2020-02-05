@@ -45,7 +45,46 @@ router.post("/", async function(req, res){
     const profil = new Profil(body);
     const resultat = await profil.save(); // asychrone => attendre que Mongo écrive 
     res.send(resultat);
+});
+
+// récupérer tous les profils
+router.get("/", async function(req, res){
+    // récupérer tous les profils enregistrés dans la base de données
+    const resultat = await Profil.find() ; // asychrone =>
+    res.send(resultat);
+});
+
+// récupérer 1 seul profil 
+
+router.get("/:id", async function(req, res){
+    // récupérer l'id qui a été transmis dans l'url
+    const id = req.params.id;
+
+    // vérifier que l'id est conforme
+    // on n'est plus que des chiffres de base 1, 2 ...
+    // par défaut MongoDB va générer _id : 5e3a9499d4546a08dce679de
+    // dans le support => Jour3 > Relations entre les documents > 5 > ObjectId du Driver de MongoDB
+    // 5e3a9499d4546a08dce679de
+    // 5e3a95803357f3684c3d99e6
+
+    const verifID = mongoose.Types.ObjectId.isValid(id);
+    //si l'id n'est pas conforme => 400 bad request et stop
+    if(!verifID){
+        res.status(400).send("id donné n'est pas conforme");
+        return ;
+    }
+    //res.send(verifID);
+    // vérifier qu'il y a bien un profil avec l'id recherché
+    const resultat = await Profil.find({_id : id});
+    // si il n'y a pas de profil => 404 Not Found et stop 
+    if(resultat.length === 0){
+        res.status(404).send("aucun enregistrement avec l'id "+ id);
+        return ;
+    }
+    // si tout est ok, je retourne le profil concerné
+    res.send(resultat);
 })
+
 
 
 module.exports = router;
